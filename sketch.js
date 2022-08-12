@@ -3,6 +3,9 @@ function setup() {
   strokeCap(SQUARE);
   noLoop();
 }
+function windowResized() {
+  resizeCanvas(windowWidth, windowHeight);
+}
 
 function draw() {
   background(255);
@@ -12,12 +15,12 @@ function draw() {
 
 
 
-  while (tS > 200 && tilesX < 9) {
+  while (tS > 300 && tilesX < 9) {
     tilesX++;
     tS = windowWidth / tilesX;
   }
-  translate(tS / 2, tS / 2)
-  tilesY = ceil(windowHeight / tS)
+  translate(tS / 2, tS / 2);
+  tilesY = ceil(windowHeight / tS);
 
   for (let x = 0; x < tilesX; x++) {
     for (let y = 0; y < tilesY; y++) {
@@ -61,11 +64,11 @@ function tiler(design) {
 
       if ((x + y) % 2 == 1) {
         fill(255);
-        rect(xPos, yPos, tS, tS)
+        rect(xPos, yPos, tS, tS);
         fill(0, 0, 125);
       } else {
         fill(0, 0, 125);
-        rect(xPos, yPos, tS, tS)
+        rect(xPos, yPos, tS, tS);
         fill(255);
       }
       if (y % 2 == 1) {
@@ -77,7 +80,7 @@ function tiler(design) {
       }
       break;
     case 2:
-      cor = floor(random(0, 2))
+      cor = floor(random(0, 2));
       if (cor == 1) {
         fill(0, 0, 125);
       } else {
@@ -85,8 +88,8 @@ function tiler(design) {
       }
       noStroke();
 
-      rect(- tS / 2, - tS / 2, tS / 3, (tS / 3) + tS / 6 + tS / 12)
-      quad(- tS / 2, - tS / 2, tS - tS / 2, 0 - tS / 2, tS - tS / 2, (tS / 12) - tS / 2, ((tS / 3) + tS / 6 + tS / 12) - tS / 2, (tS / 3) - tS / 2)
+      rect(- tS / 2, - tS / 2, tS / 3, (tS / 3) + tS / 6 + tS / 12);
+      quad(- tS / 2, - tS / 2, tS - tS / 2, 0 - tS / 2, tS - tS / 2, (tS / 12) - tS / 2, ((tS / 3) + tS / 6 + tS / 12) - tS / 2, (tS / 3) - tS / 2);
       fill(255);
       if (cor == 1) {
         stroke(0, 0, 125);
@@ -101,37 +104,37 @@ function tiler(design) {
 
       switch (floor(random(3))) {
         case 0:
-          fill(90, 125, 210);//blue
+          fill(90, 125, 210); //blue
           break;
         case 1:
-          fill(240, 200, 80)//yellow
+          fill(240, 200, 80); //yellow
           break;
 
         case 2:
-          fill(70, 120, 70)
+          fill(70, 120, 70); //green
           break;
       }
-      circle(-tS / 4, tS / 4, tS / 2 - tS / 10, tS / 2 - tS / 10)
+      circle(-tS / 4, tS / 4, tS / 2 - tS / 10, tS / 2 - tS / 10);
       stroke(0);
-      strokeWeight(tS / 20)
+      strokeWeight(tS / 20);
       noFill();
       beginShape();
-      vertex(-tS / 2 + (tS / 40), -tS / 2 + (tS / 40))
+      vertex(-tS / 2 + (tS / 40), -tS / 2 + (tS / 40));
       vertex(-tS / 4, -tS / 4);
-      vertex(-tS / 4, 0)
-      vertex(tS / 4 - tS / 40, 0)
-      vertex(0, 0)
-      vertex(0, tS / 4 - tS / 40)
-      vertex(0, 0)
-      bezierVertex(0, 0, 0, -tS / 2 + tS / 20, tS / 2 - tS / 20, -tS / 2 + tS / 20)
-      vertex(tS / 2 - tS / 20, 0)
-      vertex(tS / 4 + tS / 20, 0)
-      vertex(tS / 2 - tS / 20, 0)
-      vertex(tS / 2 - tS / 20, tS / 2 - tS / 20)
-      vertex(0, tS / 2 - tS / 20)
-      vertex(0, tS / 4 + tS / 40)
+      vertex(-tS / 4, 0);
+      vertex(tS / 4 - tS / 40, 0);
+      vertex(0, 0);
+      vertex(0, tS / 4 - tS / 40);
+      vertex(0, 0);
+      bezierVertex(0, 0, 0, -tS / 2 + tS / 20, tS / 2 - tS / 20, -tS / 2 + tS / 20);
+      vertex(tS / 2 - tS / 20, 0);
+      vertex(tS / 4 + tS / 20, 0);
+      vertex(tS / 2 - tS / 20, 0);
+      vertex(tS / 2 - tS / 20, tS / 2 - tS / 20);
+      vertex(0, tS / 2 - tS / 20);
+      vertex(0, tS / 4 + tS / 40);
       endShape();
-      stroke(255, 0, 0)
+      stroke(255, 0, 0);
       break;
   }
 }
